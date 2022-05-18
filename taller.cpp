@@ -2,51 +2,21 @@
 using namespace std;
 //Hacer 5 ejercicios de cada tema utilizando funciones y procedimientos (Algoritmos básicos, condicionales, ciclos y vectores.) Utilizar un menú en consola.
 
-/**
-Función menú
+// =================INICIO MENÚS==================
 
-	----<MENÚ>----
-	1. Algoritmos básicos.
-		1. Ej1
-		2. Ej2
-		3. Ej3
-		4. Ej4
-		5. Ej5
-		
-	2. Condicionales.
-		1. Ej1
-		2. Ej2
-		3. Ej3
-		4. Ej4
-		5. Ej5
-		
-	3. Ciclos.
-		1. Ej1
-		2. Ej2
-		3. Ej3
-		4. Ej4
-		5. Ej5
-		
-	4. Vectores
-		1. Ej1
-		2. Ej2
-		3. Ej3
-		4. Ej4
-		5. Ej5
-	
-**/	
 
-// -------------------------------------------------------
-//Procedimientos MENÚ
+// Menú principal
 
 void menu(){
 	cout<<"----<MENU>----"<<endl;
-	cout<<"1. Algoritmos básicos."<<endl;
+	cout<<"1. Algoritmos basicos."<<endl;
 	cout<<"2. Condicionales."<<endl;
 	cout<<"3. Ciclos."<<endl;
 	cout<<"4. Vectores"<<endl;
 	cout<<"5. Salir"<<endl;
 }
+
+// 1. Submenú de algoritmos básicos
 
 void menuAlgoritmosBasicos(){
 	cout<<"----<MENU ALGORITMOS BASICOS>----"<<endl;
@@ -58,13 +28,34 @@ void menuAlgoritmosBasicos(){
 	cout<<"6. Salir"<<endl;
 }
 
+// 2. Submenú de condicionales
+
+
+
+
+
+// 3. Submenú de ciclos
+
+
+
+
+
+// 4. Submenú de vectores
+
+
+
+
+
+// =================FIN MENÚS=====================
+
+// =============INICIO ELEGIR OPCIÓN==============
+
 void elegirOpcion(){
-				short opcionAlgBasicos;
-				bool salirAlgBasicos = true;
+				short opcion;
 				do{
 					menuAlgoritmosBasicos();
-					cin>>opcionAlgBasicos;
-					switch(opcionAlgBasicos){
+					cin>>opcion;
+					switch(opcion){
 						case 1:
 							//función ejercicio 1
 							break;
@@ -81,39 +72,100 @@ void elegirOpcion(){
 							//función ejercicio 5
 							break;
 						case 6:
-							salirAlgBasicos = false;
+							cout<<"-------------------------------------"<<endl;
+							cout<<"|    Volviendo al menu principal    |"<<endl;
+							cout<<"-------------------------------------"<<endl;
+							break;
+						default:
+							cout<<"Esa opcion no se encuentra disponible. Vuelva a intentar"<<endl;
 							break;
 					}
 				}
-				while(salirAlgBasicos);
+				while(opcion!=6);
 }
 
-// -----------------------------------------------
+// =============FIN ELEGIR OPCIÓN==============
 
 
 
+// =============INICIO EJERCICIOS==============
 
-
-//--------1. Algoritmos básicos----------//	
+// --------1. Algoritmos básicos----------//	
 	
 //Ejercicio 1 ()
 
+
 //Ejercicio 2 ()
+
 
 //Ejercicio 3 ()
 
+
 //Ejercicio 4 ()
+
 
 //Ejercicio 5 ()
 
 
+
 //--------2. Condicionales----------//	
+
+//Ejercicio 1 ()
+
+
+//Ejercicio 2 ()
+
+
+//Ejercicio 3 ()
+
+
+//Ejercicio 4 ()
+
+
+//Ejercicio 5 ()
+
+
+
+//--------3. Ciclos----------//	
+
+//Ejercicio 1 ()
+
+
+//Ejercicio 2 ()
+
+
+//Ejercicio 3 ()
+
+
+//Ejercicio 4 ()
+
+
+//Ejercicio 5 ()
+
+
+
+//--------4. Vectores----------//	
+
+//Ejercicio 1 ()
+
+
+//Ejercicio 2 ()
+
+
+//Ejercicio 3 ()
+
+
+//Ejercicio 4 ()
+
+
+//Ejercicio 5 ()
+
+
 
 
 
 int main(){
 	short opcion;
-	bool salir = true;
 	do{
 		menu();
 		cin>>opcion;
@@ -121,7 +173,6 @@ int main(){
 			case 1:
 				elegirOpcion();
 				break;
-				
 			case 2:
 				//menuEjercicios();
 				break;
@@ -132,10 +183,15 @@ int main(){
 				//menuEjercicios();
 				break;
 			case 5:
-				salir = false;
+				cout<<"-------------------------------------------"<<endl;
+				cout<<"|  Gracias por utilizar nuestro programa  |"<<endl;
+				cout<<"-------------------------------------------"<<endl;
+				break;
+			default:
+				cout<<"Esa opcion no se encuentra disponible. Vuelva a intentar"<<endl;
 				break;
 				
 		}
 	}
-	while(salir);	
+	while(opcion!=5);	
 }
