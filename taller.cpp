@@ -32,8 +32,15 @@ void menuAlgoritmosBasicos(){
 
 // 2. Submen? de condicionales
 
-
-
+void menuCondicionales(){
+	cout<<"----<MENU CONDICIONALES>----"<<endl;
+	cout<<"1. Saber si un alumno aprobo o reprobo el curso."<<endl;
+	cout<<"2. Determinar el mayor de 3 numeros"<<endl;
+	cout<<"3. Dado un caracter, determinar si es vocal"<<endl;
+	cout<<"4. Dado dos numeros y el operador (+, -, *, /), realizar la operacion indicada"<<endl;
+	cout<<"5. Dado un año, determinar si es bisiesto o no."<<endl;
+	cout<<"6. Salir"<<endl;
+}
 
 
 // 3. Submen? de ciclos
@@ -60,117 +67,187 @@ void menuVectores(){
 	cout<<"6. Salir"<<endl;
 }
 
+
+
+// Mensaje de salida de submenu
+
+void salidaSubmenu(){
+	cout<<"-------------------------------------"<<endl;
+	cout<<"|    Volviendo al menu principal    |"<<endl;
+	cout<<"-------------------------------------"<<endl;
+}
+
+
+
 // =================FIN MEN?S=====================
 
+
+// ===========INICIALIZACIÓN DE FUNCIONES=========
+int cuadrado(int num);
+double hipotenusa(double cat1, double cat2);
+void expresarHoras(int segundos);
 int Suma(int num1, int num2);
 float Promedio(float n1, float n2, float n3);
 float media50();
+// ========FIN INICIALIZACIÓN DE FUNCIOES=========
+
+
+
 // =============INICIO ELEGIR OPCI?N==============
 
+// 1. Elegir opción algoritmos básicos.
 void elegirOpcionAlgoritmos(){
-				short opcion;
-				do{
-					menuAlgoritmosBasicos();
-					cin>>opcion;
-					switch(opcion){
-						case 1:
-							//funci?n ejercicio 1
-							break;
-						case 2:
-							int num1, num2; 
-							cout<<"Ingrese los numeros que desea sumar"<<endl;
-							cin>>num1>>num2;
-							cout<<"EL resultado es: "<<Suma(num1, num2)<<endl<<endl;
-							break;
-						case 3:
-							//funci?n ejercicio 3
-							break;
-						case 4:
-							float n1, n2, n3;
-							cout<<"Ingrese sus 3 notas: "<<endl;
-							cin>>n1>>n2>>n3;
-							cout<<"EL promedio es: "<<Promedio(n1, n2, n3)<<endl<<endl;
-							break;
-						case 5:
-							//funci?n ejercicio 5
-							break;
-						case 6:
-							cout<<"-------------------------------------"<<endl;
-							cout<<"|    Volviendo al menu principal    |"<<endl;
-							cout<<"-------------------------------------"<<endl;
-							break;
-						default:
-							cout<<"Esa opcion no se encuentra disponible. Vuelva a intentar"<<endl;
-							break;
-					}
-				}
-				while(opcion!=6);
+	short opcion;
+	do{
+		menuAlgoritmosBasicos();
+		cin>>opcion;
+		switch(opcion){
+			case 1:
+				//Calcular la potencia.
+				int num;
+				cout<<"Ingrese un numero"<<endl;
+				cin>>num;
+				cout<<"El resultado es: "<<cuadrado(num)<<endl<<endl;
+				break;
+			case 2:
+				int num1, num2; 
+				cout<<"Ingrese los numeros que desea sumar"<<endl;
+				cin>>num1>>num2;
+				cout<<"EL resultado es: "<<Suma(num1, num2)<<endl<<endl;
+				
+				break;
+			case 3:
+				//Calcular hipotenusa.
+				double cat1, cat2;
+				cout<<"Ingrese el valor de ambos catetos"<<endl;
+				cin>>cat1>>cat2;
+				cout<<"La hipotenusa es: "<<hipotenusa(cat1, cat2)<<endl<<endl;
+				break;
+			case 4:
+				float n1, n2, n3;
+				cout<<"Ingrese sus 3 notas: "<<endl;
+				cin>>n1>>n2>>n3;
+				cout<<"EL promedio es: "<<Promedio(n1, n2, n3)<<endl<<endl;
+				break;
+			case 5:
+				//Expresar en horas, minutos y segundos un tiempo dado en segundos.
+				int segundos;
+				cout<<"Ingrese la cantidad de segundos"<<endl;
+				cin>>segundos;
+				expresarHoras(segundos);
+				break;
+			case 6:
+				salidaSubmenu();
+				break;
+			default:
+				cout<<"Esa opcion no se encuentra disponible. Vuelva a intentar"<<endl;
+				break;
+		}
+	}
+	while(opcion!=6);
 }
+
+
+
+// 2. Elegir opción condicionales.
+void elegirOpcionCondicionales(){
+	short opcion;
+	do{
+		menuCondicionales();
+		cin>>opcion;
+		switch(opcion){
+			case 1:
+				//funci?n ejercicio 1
+				break;
+			case 2:
+				//funci?n ejercicio 2
+				break;
+			case 3:
+				//funci?n ejercicio 3
+				break;
+			case 4:
+				//funci?n ejercicio 4
+				break;
+			case 5:
+				//funci?n ejercicio 5
+				break;
+			case 6:
+				salidaSubmenu();
+				break;
+			default:
+				cout<<"Esa opcion no se encuentra disponible. Vuelva a intentar"<<endl;
+				break;
+		}
+	}
+	while(opcion!=6);
+}
+
+
+// 3. Elegir opción ciclos.
 void elegirOpcionCiclos(){
-				short opcion;
-				do{
-					menuCiclos();
-					cin>>opcion;
-					switch(opcion){
-						case 1:
-							//funci?n ejercicio 1
-							break;
-						case 2:
-							cout<<"La media es: "<<media50()<<endl<<endl;
-							break;
-						case 3:
-							//funci?n ejercicio 3
-							break;
-						case 4:
-							//funci?n ejercicio 4
-							break;
-						case 5:
-							//funci?n ejercicio 5
-							break;
-						case 6:
-							cout<<"-------------------------------------"<<endl;
-							cout<<"|    Volviendo al menu principal    |"<<endl;
-							cout<<"-------------------------------------"<<endl;
-							break;
-						default:
-							cout<<"Esa opcion no se encuentra disponible. Vuelva a intentar"<<endl;
-							break;
-					}
-				}
-				while(opcion!=6);
+	short opcion;
+	do{
+		menuCiclos();
+		cin>>opcion;
+		switch(opcion){
+			case 1:
+				//funci?n ejercicio 1
+				break;
+			case 2:
+				cout<<"La media es: "<<media50()<<endl<<endl;
+				break;
+			case 3:
+				//funci?n ejercicio 3
+				break;
+			case 4:
+				//funci?n ejercicio 4
+				break;
+			case 5:
+				//funci?n ejercicio 5
+				break;
+			case 6:
+				salidaSubmenu();
+				break;
+			default:
+				cout<<"Esa opcion no se encuentra disponible. Vuelva a intentar"<<endl;
+				break;
+		}
+	}
+	while(opcion!=6);
 }
+
+
+// 4. Elegir opción vectores.
 void elegirOpcionVectores(){
-				short opcion;
-				do{
-					menuVectores();
-					cin>>opcion;
-					switch(opcion){
-						case 1:
-							//funci?n ejercicio 1
-							break;
-						case 2:
-							//funci?n ejercicio 2
-							break;
-						case 3:
-							//funci?n ejercicio 3
-							break;
-						case 4:
-							//funci?n ejercicio 4
-							break;
-						case 5:
-							//funci?n ejercicio 5
-							break;
-						case 6:
-							cout<<"-------------------------------------"<<endl;
-							cout<<"|    Volviendo al menu principal    |"<<endl;
-							cout<<"-------------------------------------"<<endl;
-							break;
-						default:
-							cout<<"Esa opcion no se encuentra disponible. Vuelva a intentar"<<endl;
-							break;
-					}
-				}
-				while(opcion!=6);
+	short opcion;
+	do{
+		menuVectores();
+		cin>>opcion;
+		switch(opcion){
+			case 1:
+				//funci?n ejercicio 1
+				break;
+			case 2:
+				//funci?n ejercicio 2
+				break;
+			case 3:
+				//funci?n ejercicio 3
+				break;
+			case 4:
+				//funci?n ejercicio 4
+				break;
+			case 5:
+				//funci?n ejercicio 5
+				break;
+			case 6:
+				salidaSubmenu();
+				break;
+			default:
+				cout<<"Esa opcion no se encuentra disponible. Vuelva a intentar"<<endl;
+				break;
+		}
+	}
+	while(opcion!=6);
 }
 
 // =============FIN ELEGIR OPCI?N==============
@@ -181,8 +258,14 @@ void elegirOpcionVectores(){
 
 // --------1. Algoritmos b?sicos----------//	
 	
-//Ejercicio 1 ()
+//Ejercicio 1 - Calcular el cuadrado de un número
 
+int cuadrado(int num){
+	return pow(num, 2);
+}
+
+
+//Ejercicio 2 - Suma de dos números
 
 int Suma(int num1, int num2 )
 {
@@ -190,8 +273,14 @@ int Suma(int num1, int num2 )
 }
 
 
-//Ejercicio 3 ()
+//Ejercicio 3 - Calcular la hipotenusa
 
+double hipotenusa(double cat1, double cat2){
+	return sqrt(pow(cat1, 2) + pow(cat2, 2));
+}
+
+
+//Ejercicio 4 - Promedio de notas de un alumno
 
 float Promedio(float n1, float n2, float n3)
 {
@@ -201,7 +290,17 @@ float Promedio(float n1, float n2, float n3)
 }
 
 
-//Ejercicio 5 ()
+//Ejercicio 5 - Expresar en horas, minutos y segundos un tiempo dado en segundos.
+
+void expresarHoras(int segundos){
+	int horas, minutos, segundosNuevos, residuo;
+	horas = segundos / 3600;
+	segundos = segundos % 3600;
+	minutos = segundos / 60;
+	segundos = segundos % 60;
+	
+	cout<<"Horas: "<<horas<<endl<<"Minutos: "<<minutos<<endl<<"Segundos: "<<segundos<<endl<<endl<<endl;
+}
 
 
 
@@ -227,6 +326,8 @@ float Promedio(float n1, float n2, float n3)
 
 //Ejercicio 1 ()
 
+
+//Ejercicio 2 - Media aritmetica de 50 números
 
 float media50()
 {
@@ -284,7 +385,7 @@ int main(){
 				elegirOpcionAlgoritmos();
 				break;
 			case 2:
-				//menuEjercicios();
+				elegirOpcionCondicionales();
 				break;
 			case 3:
 				elegirOpcionCiclos();
