@@ -89,6 +89,7 @@ void expresarHoras(int segundos);
 int Suma(int num1, int num2);
 float Promedio(float n1, float n2, float n3);
 float media50();
+int primo(int n);
 // ========FIN INICIALIZACIÓN DE FUNCIOES=========
 
 
@@ -200,7 +201,12 @@ void elegirOpcionCiclos(){
 				//funci?n ejercicio 3
 				break;
 			case 4:
-				//funci?n ejercicio 4
+				int n;
+				int cont;
+				cout<<"Ingrese el numero"<<endl;
+				cin>>n;
+				cout<<primo(n)<<endl<<endl;
+				
 				break;
 			case 5:
 				//funci?n ejercicio 5
@@ -348,7 +354,29 @@ float media50()
 //Ejercicio 3 ()
 
 
-//Ejercicio 4 ()
+//Ejercicio 4 - ¿N es primo?
+
+int primo(int n)
+{
+	int cont;
+	for(int i=0; i<n; i++)
+	{
+	
+	if( n%i==0)
+	{
+		cont= cont + 1;
+	}
+	if(cont>2)
+		{
+			cout<<"no es primo"<<endl;
+		}
+		else
+		{
+			cout<<"es primo"<<endl;
+		}
+	}
+return 0;
+}
 
 
 //Ejercicio 5 ()
