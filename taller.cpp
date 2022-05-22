@@ -90,7 +90,6 @@ int Suma(int num1, int num2);
 float Promedio(float n1, float n2, float n3);
 float media50();
 
-int primo(int n);
 int determinarMayor(int num1, int num2, int num3);
 float hacerOperacion(float num1, char operacion, float num2);
 int sumarPares(int numInicio, int numFin);
