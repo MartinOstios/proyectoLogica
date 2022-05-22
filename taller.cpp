@@ -21,7 +21,7 @@ void menu(){
 // 1. Submen? de algoritmos b?sicos
 
 void menuAlgoritmosBasicos(){
-	cout<<"----<MENU ALGORITMOS BASICOS>----"<<endl;
+	cout<<endl<<"----<MENU ALGORITMOS BASICOS>----"<<endl;
 	cout<<"1. Cuadrado de un numero."<<endl;
 	cout<<"2. Suma de dos numeros."<<endl;
 	cout<<"3. Calcular hipotenusa."<<endl;
@@ -33,7 +33,7 @@ void menuAlgoritmosBasicos(){
 // 2. Submen? de condicionales
 
 void menuCondicionales(){
-	cout<<"----<MENU CONDICIONALES>----"<<endl;
+	cout<<endl<<"----<MENU CONDICIONALES>----"<<endl;
 	cout<<"1. Saber si un alumno aprobo o reprobo el curso."<<endl;
 	cout<<"2. Determinar el mayor de 3 numeros"<<endl;
 	cout<<"3. Dado un caracter, determinar si es vocal"<<endl;
@@ -46,7 +46,7 @@ void menuCondicionales(){
 // 3. Submen? de ciclos
 
 void menuCiclos(){
-	cout<<"----<MENU CICLOS>----"<<endl;
+	cout<<endl<<"----<MENU CICLOS>----"<<endl;
 	cout<<"1. Sumar numeros pares del 2 al 100"<<endl;
 	cout<<"2. Calcular la media de 50 numeros"<<endl;
 	cout<<"3. Sumar 10 numeros"<<endl;
@@ -58,11 +58,11 @@ void menuCiclos(){
 // 4. Submen? de vectores
 
 void menuVectores(){
-	cout<<"----<MENU VECTORES>----"<<endl;
+	cout<<endl<<"----<MENU VECTORES>----"<<endl;
 	cout<<"1. Leer vector de numeros y sumar elementos pares"<<endl;
 	cout<<"2. Leer vector de numeros y sumar elementos impares en posiciones pares"<<endl;
 	cout<<"3. Leer vector de numeros y decir mayor y menor elemento"<<endl;
-	cout<<"4. Leer dos vectores y decir que son iguales"<<endl;
+	cout<<"4. Leer dos vectores y averiguar si iguales"<<endl;
 	cout<<"5. Encontrar cuantas veces aparece un dato en un vector"<<endl;
 	cout<<"6. Salir"<<endl;
 }
@@ -90,6 +90,15 @@ int Suma(int num1, int num2);
 float Promedio(float n1, float n2, float n3);
 float media50();
 int primo(int n);
+int determinarMayor(int num1, int num2, int num3);
+float hacerOperacion(float num1, char operacion, float num2);
+int sumarPares(int numInicio, int numFin);
+int sumarNumeros(int cantNumeros);
+int sumarNumerosPares(int cantNumeros);
+int leerTamanoVector();
+int *leerVector(int vect[], int tamano);
+int sumarVectorImpares(int vect[], int tamano);
+bool vectoresIguales(int vect1[], int vect2[], int tamano);
 // ========FIN INICIALIZACIÓN DE FUNCIOES=========
 
 
@@ -114,7 +123,7 @@ void elegirOpcionAlgoritmos(){
 				int num1, num2; 
 				cout<<"Ingrese los numeros que desea sumar"<<endl;
 				cin>>num1>>num2;
-				cout<<"EL resultado es: "<<Suma(num1, num2)<<endl<<endl;
+				cout<<"El resultado es: "<<Suma(num1, num2)<<endl<<endl;
 				
 				break;
 			case 3:
@@ -161,13 +170,23 @@ void elegirOpcionCondicionales(){
 				//funci?n ejercicio 1
 				break;
 			case 2:
-				//funci?n ejercicio 2
+				//Determinar el mayor de 3 numeros
+				int num1, num2, num3;
+				cout<<"Ingrese los 3 numeros"<<endl;
+				cin>>num1>>num2>>num3;
+				cout<<"El numero mayor es: "<<determinarMayor(num1, num2, num3)<<endl;
 				break;
 			case 3:
 				//funci?n ejercicio 3
 				break;
 			case 4:
-				//funci?n ejercicio 4
+				//Dado dos numeros y el operador (+, -, *, /), realizar la operacion indicada
+				float numero1, numero2;
+				char operador;
+				cout<<"Ingrese la operacion"<<endl;
+				cin>>numero1>>operador>>numero2;
+				cout<<"El resultado es: "<<hacerOperacion(numero1, operador, numero2)<<endl;
+				
 				break;
 			case 5:
 				//funci?n ejercicio 5
@@ -192,13 +211,15 @@ void elegirOpcionCiclos(){
 		cin>>opcion;
 		switch(opcion){
 			case 1:
-				//funci?n ejercicio 1
+				//Sumar numeros pares del 2 al 100
+				cout<<"La suma es: "<<sumarPares(2, 100)<<endl;
 				break;
 			case 2:
 				cout<<"La media es: "<<media50()<<endl<<endl;
 				break;
 			case 3:
-				//funci?n ejercicio 3
+				//Sumar 10 numeros
+				cout<<"La suma de los numeros es: "<<sumarNumeros(10)<<endl;
 				break;
 			case 4:
 				int n;
@@ -209,7 +230,9 @@ void elegirOpcionCiclos(){
 				
 				break;
 			case 5:
-				//funci?n ejercicio 5
+				//Dados 10 numeros enteros, mostrar la suma de los elementos pares, cuantos pares hay y promedio de numeros impares
+				sumarNumerosPares(10);
+				
 				break;
 			case 6:
 				salidaSubmenu();
@@ -233,15 +256,38 @@ void elegirOpcionVectores(){
 			case 1:
 				//funci?n ejercicio 1
 				break;
-			case 2:
-				//funci?n ejercicio 2
-				break;
+			case 2:{
+				//Leer vector de numeros y sumar elementos impares en posiciones pares
+				int tamano = leerTamanoVector();
+				
+				int vect[tamano];
+				int *vectCopia = leerVector(vect, tamano);
+				cout<<"La suma de los numeros impares en posiciones pares es: "<<sumarVectorImpares(vect, tamano)<<endl;
+				
+				break;	
+			}
+				
 			case 3:
 				//funci?n ejercicio 3
 				break;
-			case 4:
-				//funci?n ejercicio 4
+			case 4:{
+				//Leer dos vectores y averiguar si iguales
+				int tamano = leerTamanoVector();
+				int vect1[tamano];
+				int vect2[tamano];
+				cout<<"-----<VECTOR 1>-----"<<endl;
+				int *vectCopia1 = leerVector(vect1, tamano);
+				cout<<"-----<VECTOR 2>-----"<<endl;
+				int *vectCopia2 = leerVector(vect2, tamano);
+				
+				if(vectoresIguales(vect1, vect2, tamano)){
+					cout<<"Los vectores son iguales"<<endl;
+				}else{
+					cout<<"Los vectores no son iguales"<<endl;
+				}
+				
 				break;
+			}
 			case 5:
 				//funci?n ejercicio 5
 				break;
@@ -310,18 +356,50 @@ void expresarHoras(int segundos){
 
 
 
+
+
+
 //--------2. Condicionales----------//	
 
 //Ejercicio 1 ()
 
 
-//Ejercicio 2 ()
+//Ejercicio 2 - Determinar el mayor de 3 numeros
+
+int determinarMayor(int num1, int num2, int num3){
+	if(num1>num2 && num1>num3){
+		return num1;
+	} else if(num2>num3){
+		return num2;
+	} else{
+		return num3;
+	}
+}
 
 
 //Ejercicio 3 ()
 
 
-//Ejercicio 4 ()
+//Ejercicio 4 - Dado dos numeros y el operador (+, -, *, /), realizar la operacion indicada
+
+float hacerOperacion(float num1, char operador, float num2){
+	switch(operador){
+		case '+':
+			return num1 + num2;
+			break;
+		case '-':
+			return num1 - num2;
+			break;
+		case '*':
+			return num1 * num2;
+			break;
+		case '/':
+			return num1 / num2;
+			break;
+		default:
+			return -9999;
+	}
+}
 
 
 //Ejercicio 5 ()
@@ -330,7 +408,15 @@ void expresarHoras(int segundos){
 
 //--------3. Ciclos----------//	
 
-//Ejercicio 1 ()
+//Ejercicio 1 - Sumar numeros pares del 2 al 100
+
+int sumarPares(int numInicio, int numFin){
+	int suma;
+	for(int i=numInicio; i<=numFin; i = i + 2){
+		suma = suma + i;
+	}
+	return suma;
+}
 
 
 //Ejercicio 2 - Media aritmetica de 50 números
@@ -351,7 +437,17 @@ float media50()
 }
 
 
-//Ejercicio 3 ()
+//Ejercicio 3 - Sumar 10 numeros
+
+int sumarNumeros(int cantNumeros){
+	int suma, num;
+	for(int i = 0; i<cantNumeros; i++){
+		cout<<"Ingrese un numero"<<endl;
+		cin>>num;
+		suma = suma + num;
+	}
+	return suma;
+}
 
 
 //Ejercicio 4 - ¿N es primo?
@@ -379,22 +475,83 @@ return 0;
 }
 
 
-//Ejercicio 5 ()
+//Ejercicio 5 - Dados 10 numeros enteros, mostrar la suma de los elementos pares, cuantos pares hay y promedio de numeros impares
+int sumarNumerosPares(int cantNumeros){
+	int suma, num, cont, sumaImpares, contImpares;
+	suma = 0;
+	sumaImpares = 0;
+	cont = 0;
+	contImpares = 0;
+	for(int i = 0; i<cantNumeros; i++){
+		cout<<"Ingrese un numero"<<endl;
+		cin>>num;
+		if(num % 2 == 0){
+			suma = suma + num;
+			cont++;
+		} else {
+			sumaImpares = sumaImpares + num;
+			contImpares++;
+		}
+	}
+	cout<<"La suma de los elementos pares es: "<<suma<<endl<<"La cantidad de pares que hay es: "<<cont<<endl<<"El promedio de numeros impares es: "<<sumaImpares/contImpares<<endl;
+	return suma;
+}
 
 
 
-//--------4. Vectores----------//	
+//--------4. Vectores----------//
+
+// ----------- FUNCIONES GLOBALES (Para uso en varios ejercicios) -------------//
+
+int leerTamanoVector(){
+	int tamano;
+	cout<<"Ingrese el tamano del vector: "<<endl;
+	cin>>tamano;
+	return tamano;
+}
+
+int *leerVector(int vect[], int tamano){
+	
+	for(int i = 0; i<tamano; i++){
+		cout<<"Ingrese un numero ["<<i<<"]"<<endl;
+		cin>>vect[i];
+	}
+	return vect;
+}
+
+// -----------------------------------------------------------------------------//
+
 
 //Ejercicio 1 ()
 
 
-//Ejercicio 2 ()
-
+//Ejercicio 2 - Leer vector de numeros y sumar elementos impares en posiciones pares
+int sumarVectorImpares(int vect[], int tamano){
+	int suma;
+	suma = 0;
+	for(int i = 0; i<tamano; i++){
+		if(i%2==0 && i!=0){
+			if(vect[i] % 2 != 0){
+				suma = suma + vect[i];
+			}
+		}
+	}
+	return suma;
+	
+}
 
 //Ejercicio 3 ()
 
 
-//Ejercicio 4 ()
+//Ejercicio 4 - Leer dos vectores y averiguar si iguales
+bool vectoresIguales(int vect1[], int vect2[], int tamano){
+	for(int i = 0; i<tamano; i++){
+		if(vect1[i] != vect2[i]){
+			return false;
+		}
+	}
+	return true;
+}
 
 
 //Ejercicio 5 ()
