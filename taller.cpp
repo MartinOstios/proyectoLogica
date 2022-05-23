@@ -89,7 +89,6 @@ void expresarHoras(int segundos);
 int Suma(int num1, int num2);
 float Promedio(float n1, float n2, float n3);
 float media50();
-
 int determinarMayor(int num1, int num2, int num3);
 float hacerOperacion(float num1, char operacion, float num2);
 int sumarPares(int numInicio, int numFin);
@@ -100,6 +99,9 @@ int *leerVector(int vect[], int tamano);
 int sumarVectorImpares(int vect[], int tamano);
 bool vectoresIguales(int vect1[], int vect2[], int tamano);
 bool primo(int n);
+void Aprobar(float promedio);
+void vocal(char letra);
+int bisiesto(int anno);
 
 // ========FIN INICIALIZACIÓN DE FUNCIOES=========
 
@@ -169,8 +171,15 @@ void elegirOpcionCondicionales(){
 		cin>>opcion;
 		switch(opcion){
 			case 1:
-				//funci?n ejercicio 1
+				{
+				int n1, n2, n3;
+				cout<<"ingrese sus 3 notas:"<<endl;
+				cin>>n1>>n2>>n3;
+				float promedio=Promedio(n1, n2, n3);
+				Aprobar(promedio);
+				cout<<"su nota fue:"<<promedio<<endl;
 				break;
+				}
 			case 2:
 				//Determinar el mayor de 3 numeros
 				int num1, num2, num3;
@@ -179,7 +188,11 @@ void elegirOpcionCondicionales(){
 				cout<<"El numero mayor es: "<<determinarMayor(num1, num2, num3)<<endl;
 				break;
 			case 3:
-				//funci?n ejercicio 3
+				//Dado un caracter determinar si es vocal
+				char letra;
+				cout<<"Ingrese una letra"<<endl;
+				cin>>letra;
+				vocal(letra);
 				break;
 			case 4:
 				//Dado dos numeros y el operador (+, -, *, /), realizar la operacion indicada
@@ -191,7 +204,11 @@ void elegirOpcionCondicionales(){
 				
 				break;
 			case 5:
-				//funci?n ejercicio 5
+				//año bisiesto
+				cout<<"ingrese el año:"<<endl;
+				int anno;
+				cin>>anno;
+				bisiesto(anno);
 				break;
 			case 6:
 				salidaSubmenu();
@@ -369,7 +386,17 @@ void expresarHoras(int segundos){
 
 //--------2. Condicionales----------//	
 
-//Ejercicio 1 ()
+//Ejercicio 1 () - Determinar si aprobo el curso
+void Aprobar(float promedio)
+{
+	if(promedio>=3)
+	{
+		cout<<"El estudiante aprobo el curso"<<endl;
+	}else
+	{
+		cout<<"El estudiante reprobo"<<endl;
+	}
+}
 
 
 //Ejercicio 2 - Determinar el mayor de 3 numeros
@@ -385,7 +412,17 @@ int determinarMayor(int num1, int num2, int num3){
 }
 
 
-//Ejercicio 3 ()
+//Ejercicio 3 - Determinar si es vocal
+void vocal(char letra)
+{
+if(letra=='a' || letra=='e' || letra=='i' || letra=='o' || letra=='u')
+{
+	cout<<"Es una vocal"<<endl;
+}else
+{
+	cout<<"no es una vocal"<<endl;
+}
+}
 
 
 //Ejercicio 4 - Dado dos numeros y el operador (+, -, *, /), realizar la operacion indicada
@@ -410,7 +447,17 @@ float hacerOperacion(float num1, char operador, float num2){
 }
 
 
-//Ejercicio 5 ()
+//Ejercicio 5 - año bisiesto
+int bisiesto(int anno)
+{
+if(anno%4==0 || anno%100!=0 && anno%400==0)
+{
+	cout<<"Es bisiesto"<<endl;
+}else
+{
+	cout<<"No es bisiesto"<<endl;
+}
+}
 
 
 
