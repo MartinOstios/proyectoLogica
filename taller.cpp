@@ -102,6 +102,9 @@ bool primo(int n);
 void Aprobar(float promedio);
 void vocal(char letra);
 int bisiesto(int anno);
+int sumarVectorPares(int vec[], int tamano);
+int averiguarMayorMenor(int vec[],int tamano);
+int vecesDato(int vec[], int tamano, int n);
 
 // ========FIN INICIALIZACIÓN DE FUNCIOES=========
 
@@ -279,7 +282,13 @@ void elegirOpcionVectores(){
 		cin>>opcion;
 		switch(opcion){
 			case 1:
-				//funci?n ejercicio 1
+				{
+				//Leer vector y sumar elementos pares
+				int tamano =leerTamanoVector();
+				int vec[tamano];
+				int *vecCopia= leerVector(vec, tamano);
+				cout<<"La suma es: "<<sumarVectorPares(vec, tamano)<<endl;
+				}
 				break;
 			case 2:{
 				//Leer vector de numeros y sumar elementos impares en posiciones pares
@@ -293,7 +302,13 @@ void elegirOpcionVectores(){
 			}
 				
 			case 3:
-				//funci?n ejercicio 3
+				{
+				//Leer vector de numeros y decir mayor y menor elemento
+				int tamano= leerTamanoVector();
+				int vec[tamano];
+				int *vectCopia = leerVector(vec, tamano);
+				averiguarMayorMenor(vec, tamano);
+				}
 				break;
 			case 4:{
 				//Leer dos vectores y averiguar si iguales
@@ -314,8 +329,17 @@ void elegirOpcionVectores(){
 				break;
 			}
 			case 5:
-				//funci?n ejercicio 5
+				{
+				//Encontrar cuantas veces aparece un dato en un vector
+				int tamano= leerTamanoVector();
+				int vec[tamano];
+				int *vecCopia= leerVector(vec, tamano);
+				int n;
+				cout<<"Ingrese el numero que desea ver cuantas veces se repite:"<<endl;
+				cin>>n;
+				cout<<"El numero se repite "<<vecesDato(vec, tamano,n)<<endl;
 				break;
+				}
 			case 6:
 				salidaSubmenu();
 				break;
@@ -571,7 +595,19 @@ int *leerVector(int vect[], int tamano){
 // -----------------------------------------------------------------------------//
 
 
-//Ejercicio 1 ()
+//Ejercicio 1 - leer vector y sumar elementos pares
+int sumarVectorPares(int vec[], int tamano)
+{
+	int suma=0;
+	for(int i=0; i<tamano;i++)
+	{
+		if(vec[i]%2==0)
+		{
+			suma=suma+vec[i];
+		}
+	 } 
+	 return suma;
+}
 
 
 //Ejercicio 2 - Leer vector de numeros y sumar elementos impares en posiciones pares
@@ -589,7 +625,25 @@ int sumarVectorImpares(int vect[], int tamano){
 	
 }
 
-//Ejercicio 3 ()
+//Ejercicio 3 - Leer vector de numeros y decir mayor y menor elemento.
+int  averiguarMayorMenor(int vec[], int tamano)
+{
+	int mayor= 0;
+	int menor=10000;
+	for(int i=0; i<tamano;i++)
+	{
+		if(vec[i]>mayor)
+		{
+			mayor=vec[i];
+		}
+		if(vec[i]<menor)
+		{
+			menor=vec[i];
+		}
+	}
+	cout<<"El numero mayor es "<<mayor<<endl;
+	cout<<"El numero menor es "<<menor<<endl;
+}
 
 
 //Ejercicio 4 - Leer dos vectores y averiguar si iguales
@@ -603,7 +657,19 @@ bool vectoresIguales(int vect1[], int vect2[], int tamano){
 }
 
 
-//Ejercicio 5 ()
+//Ejercicio 5 - Encontrar cuantas veces aparece un dato en un vector
+int vecesDato(int vec[],int tamano,int n)
+{
+	int rep= 0;
+	for(int i=0; i<tamano; i++)
+	{
+		if(vec[i]==n)
+		{
+			rep=rep+1;
+		}
+	}
+	return rep;
+}
 
 
 
