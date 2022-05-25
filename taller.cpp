@@ -1,5 +1,6 @@
 #include <iostream>
 #include <math.h>
+#include<stdlib.h>
 using namespace std;
 
 //Hacer 5 ejercicios de cada tema utilizando funciones y procedimientos (Algoritmos b?sicos, condicionales, ciclos y vectores.) Utilizar un men? en consola.
@@ -106,7 +107,7 @@ int sumarVectorPares(int vec[], int tamano);
 int averiguarMayorMenor(int vec[],int tamano);
 int vecesDato(int vec[], int tamano, int n);
 
-// ========FIN INICIALIZACIÓN DE FUNCIOES=========
+// ========FIN INICIALIZACIÓN DE FUNCIONES=========
 
 
 
@@ -676,6 +677,7 @@ int vecesDato(int vec[],int tamano,int n)
 
 
 int main(){
+	system("color B");
 	short opcion;
 	do{
 		menu();
