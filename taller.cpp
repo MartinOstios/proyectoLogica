@@ -474,7 +474,7 @@ float hacerOperacion(float num1, char operador, float num2){
 //Ejercicio 5 - año bisiesto
 int bisiesto(int anno)
 {
-if(anno%4==0 || anno%100!=0 && anno%400==0)
+if(anno%4==0 && anno%100!=0 || anno%400==0)
 {
 	cout<<"Es bisiesto"<<endl;
 }else
